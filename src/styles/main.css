@@ -1,0 +1,36 @@
+.main-container {
+  display: flex;
+  flex-flow: row;
+  min-width: 100vh;
+}
+
+.country-list {
+  order: 1;
+}
+
+.country-list button {
+  white-space: nowrap;
+}
+
+.events-container {
+  order: 2;
+}
+
+.events {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  flex-grow: 2;
+}
+
+.event {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+}
+
+.event img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}

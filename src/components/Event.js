@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Event = ({ id, imageUrl, name, onClick }) => (
-    <div>
+    <div className="event">
         <img src={imageUrl} onClick={onClick}/> 
-        <li key={id}>{name}</li>
+        <h4>{name}</h4>
     </div>
 )
 

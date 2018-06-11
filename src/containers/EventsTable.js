@@ -10,6 +10,7 @@ import {
     selectCountry
 } from '../actions/Events'
 import EventDetailsModal from './EventDetailsModal';
+import '../styles/main.css'
 
 class EventsTable extends Component {
     static propTypes = {
@@ -62,16 +63,16 @@ class EventsTable extends Component {
         const { isLoading, error, items, selectedCountry, selectedEventId } = this.props
         
         return (
-            <div> 
+            <div className='events-container'> 
                 {this.state.show &&
                     <EventDetailsModal eventId={selectedEventId} onClose={() => this.hideModal()}/>
                 }
                 {items.length > 0 &&
-                    <ul>
+                    <div className='events'>
                         {items.map(event => 
                             <Event id={event.id} imageUrl={event.imageUrl} name={event.name} onClick={() => this.showModal(event.id)} />
                         )}
-                    </ul>
+                    </div>
                 }
             </div>
         )

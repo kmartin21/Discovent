@@ -2,12 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import CountryLink from '../containers/CountryLink'
 import countryCodes from '../constants/CountryCodes'
+import '../styles/main.css'
 
 const CountryList = () => (
-    <div>
-        {countryCodes.map(code => (
-            <Link key={code.code} to={`/${code.code}`}><CountryLink code={code.code} name={code.name}/></Link>
-        ))}
+    <div className="country-list">
+        <ul>
+            {countryCodes.map(code => (
+                <li><Link key={code.code} to={`/${code.code}`}><CountryLink code={code.code} name={code.name}/></Link></li>
+            ))}
+        </ul>
     </div>
 )
 

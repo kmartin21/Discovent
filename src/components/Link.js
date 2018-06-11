@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import '../styles/main.css'
 
 const Link = ({ active, name, onClick }) => (
     <button
        onClick={onClick}
        disabled={active}
+       className='listb'
     >
         {name}
     </button>
