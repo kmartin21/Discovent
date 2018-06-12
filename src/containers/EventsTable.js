@@ -68,7 +68,7 @@ class EventsTable extends Component {
                     <EventDetailsModal eventId={selectedEventId} onClose={() => this.hideModal()}/>
                 }
                 {items.length > 0 &&
-                    <div className='events'>
+                    <div className='events-container__events'>
                         {items.map(event => 
                             <Event id={event.id} imageUrl={event.imageUrl} name={event.name} onClick={() => this.showModal(event.id)} />
                         )}

@@ -4,9 +4,9 @@ import '../styles/main.css'
 
 const Link = ({ active, name, onClick }) => (
     <button
+       className="country-list__button"
        onClick={onClick}
        disabled={active}
-       className='listb'
     >
         {name}
     </button>

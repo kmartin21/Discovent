@@ -8,29 +8,40 @@
   order: 1;
 }
 
-.country-list button {
+.country-list_ul {
+  list-style-type: none;
+}
+
+.country-list__button {
   white-space: nowrap;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #AEB5B0;
 }
 
 .events-container {
   order: 2;
 }
 
-.events {
+.events-container__events {
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
   flex-grow: 2;
 }
 
-.event {
-  width: 200px;
-  height: 200px;
+.events-container__event {
+  width: 500px;
+  height: 500px;
   margin: 20px;
+  color: #5C5B5F;
 }
 
-.event img {
-  width: 100px;
-  height: 100px;
+.events-container__img {
+  width: 300px;
+  height: 300px;
+  display: block;
+  margin: auto;
   object-fit: contain;
 }
