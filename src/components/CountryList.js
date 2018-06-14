@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import CountryLink from '../containers/CountryLink'
 import countryCodes from '../constants/CountryCodes'
 import '../styles/main.css'
+import '../'
 
 const CountryList = () => (
     <div className="country-list">
+        <img src= {require('../images/img.png')} />
         <h6 className="country-list__header">COUNTRIES</h6>
         <ul className="country-list__ul">
             {countryCodes.map(code => (
