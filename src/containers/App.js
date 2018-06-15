@@ -14,6 +14,7 @@ const App = () => (
             if (!match.params.code) {
               return <Redirect to="/US" />
             }
+          
             if (countryCodes.find(code => code.code === match.params.code)) {
                 return (
                   <div className='main-container'>

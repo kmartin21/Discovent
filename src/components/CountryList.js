@@ -7,7 +7,7 @@ import '../'
 
 const CountryList = () => (
     <div className="country-list">
-        <img src= {require('../images/img.png')} />
+        <img src= {require('../images/img.png')} className='country-list__logo'/>
         <h6 className="country-list__header">COUNTRIES</h6>
         <ul className="country-list__ul">
             {countryCodes.map(code => (

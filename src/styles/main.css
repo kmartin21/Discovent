@@ -6,24 +6,38 @@
 
 .country-list {
   order: 1;
+  padding-right: 20px;
 }
 
-.country-list img {
-  width: 100px;
-  height: 100px;
+.country-list__logo {
+  width: 120px;
+  height: 80px;
   object-fit: contain;
   padding-left: 20px;
 }
 
 .country-list__header {
   padding-left: 20px;
-  color: #393233
+  font-weight: normal;
+  color: #99999F;
 }
 
 .country-list__ul {
   padding-left: 20px;
-  padding-right: 40px;
+  padding-right: 60px;
   list-style-type: none;
+}
+
+.country-list__link-container {
+  white-space: nowrap;
+}
+
+.country-list__flag {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+  vertical-align: middle;
+  padding-right: 10px;
 }
 
 .country-list__button {
@@ -35,11 +49,21 @@
   text-align: left;
   padding-left: 0;
   padding-bottom: 20px;
+  font-size: 0.9em;
+}
+
+.country-list__button--selected {
+  color: #61c3fc;
 }
 
 .events-container {
   order: 2;
-  margin-top: 50px;
+  padding-top: 100px;
+}
+
+.events-container__header {
+  font-weight: normal;
+  color: #99999F;
 }
 
 .events-container__events {

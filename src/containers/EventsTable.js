@@ -61,7 +61,7 @@ class EventsTable extends Component {
     
     render() {
         const { isLoading, error, items, selectedCountry, selectedEventId } = this.props
-        
+        var selectedCountryCaps = selectedCountry.toUpperCase();
         return (
             <div className='events-container'> 
                 {this.state.show &&
@@ -69,6 +69,7 @@ class EventsTable extends Component {
                 }
                 {items.length > 0 &&
                     <div className='events-container__events'>
+                        {/* <h6 className='events-container__header'>DISCOVER EVENTS IN {selectedCountryCaps}</h6> */}
                         {items.map(event => 
                             <Event id={event.id} imageUrl={event.imageUrl} name={event.name} onClick={() => this.showModal(event.id)} />
                         )}
