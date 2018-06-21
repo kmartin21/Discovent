@@ -11,7 +11,7 @@
 
 .country-list__logo {
   width: 120px;
-  height: 80px;
+  height: 105px;
   object-fit: contain;
   padding-left: 20px;
 }
@@ -19,7 +19,6 @@
 .country-list__header {
   padding-left: 20px;
   font-weight: normal;
-  color: #99999F;
 }
 
 .country-list__ul {
@@ -45,11 +44,15 @@
   border: none;
   outline: none;
   cursor: pointer;
-  color: #5C5B5F;
+  color: #757575;
   text-align: left;
   padding-left: 0;
   padding-bottom: 20px;
   font-size: 0.9em;
+}
+
+.country-list__button:hover {
+  color: #61c3fc;
 }
 
 .country-list__button--selected {
@@ -58,7 +61,7 @@
 
 .events-container {
   order: 2;
-  padding-top: 100px;
+  padding-top: 70px;
 }
 
 .events-container__header {
@@ -77,14 +80,22 @@
   width: 300px;
   height: 300px;
   margin: 20px;
-  color: #5C5B5F;
-  text-align: center;
+  
 }
 
 .events-container__img {
   width: 300px;
   height: 250px;
   display: block;
-  margin: auto;
+  background-color: darkblue;
   object-fit: contain;
 }
+
+#events-container__title {
+  margin-top: 0;
+  padding-bottom: 10px;
+  padding-top: 4px;
+  text-align: center;
+}
+
+
