@@ -4,6 +4,7 @@ import CountryList from '../components/CountryList'
 import EventsTable from './EventsTable'
 import countryCodes from '../constants/CountryCodes'
 import PageNotFound from '../components/PageNotFound'
+import '../styles/main.css'
 
 const App = () => (
   <Router>
@@ -13,9 +14,10 @@ const App = () => (
             if (!match.params.code) {
               return <Redirect to="/US" />
             }
+          
             if (countryCodes.find(code => code.code === match.params.code)) {
                 return (
-                  <div>
+                  <div className='main-container'>
                     <CountryList />
                     <EventsTable countryCode={match.params.code} />
                   </div>
@@ -25,7 +27,6 @@ const App = () => (
             }
           }
         } />
-      
         <Route component={PageNotFound} />
       </Switch>
     </div>

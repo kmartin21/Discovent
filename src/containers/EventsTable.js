@@ -10,6 +10,7 @@ import {
     selectCountry
 } from '../actions/Events'
 import EventDetailsModal from './EventDetailsModal';
+import '../styles/main.css'
 
 class EventsTable extends Component {
     static propTypes = {
@@ -60,18 +61,19 @@ class EventsTable extends Component {
     
     render() {
         const { isLoading, error, items, selectedCountry, selectedEventId } = this.props
-        
+        var selectedCountryCaps = selectedCountry.toUpperCase();
         return (
-            <div> 
+            <div className='events-container'> 
                 {this.state.show &&
                     <EventDetailsModal eventId={selectedEventId} onClose={() => this.hideModal()}/>
                 }
                 {items.length > 0 &&
-                    <ul>
+                    <div className='events-container__events'>
+                        {/* <h6 className='events-container__header'>DISCOVER EVENTS IN {selectedCountryCaps}</h6> */}
                         {items.map(event => 
                             <Event id={event.id} imageUrl={event.imageUrl} name={event.name} onClick={() => this.showModal(event.id)} />
                         )}
-                    </ul>
+                    </div>
                 }
             </div>
         )

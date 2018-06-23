@@ -1,9 +1,5 @@
 export const countryCodes = [
     {
-        code: 'US',
-        name: 'United States Of America'
-    },
-    {
         code: 'AU',
         name: 'Australia'
     },
@@ -39,6 +35,10 @@ export const countryCodes = [
         code: 'ES',
         name: 'Spain'
     },
+    {
+        code: 'US',
+        name: 'United States'
+    }
 ]
 
 export default countryCodes
