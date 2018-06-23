@@ -129,9 +129,9 @@ const eventDetails = (state = {
 }
 
 const getImageUrl = (images) => {
-    for(var image in images) {
-        if(image.ratio === "4_3") {
-            return image.url
+    for(var i in images) {
+        if(images[i].ratio === "4_3") {
+            return images[i].url
         }
     }
 }

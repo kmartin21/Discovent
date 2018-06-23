@@ -2,27 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-const EventDetailsModal = ({ eventId, onClose, isLoading, error, imageUrl, name, seatingImageUrl, info, venue, date, time }) => {
-
+const EventDetailsModal = ({ onClose, isLoading, error, imageUrl, name, seatingImageUrl, venue, date, time }) => {
+    const dateTime = new Date(`${date} ${time}`).toDateString();
     return (
-        <div>
-            LOADING: {`${isLoading}`} ||
-            ERROR: {`${error}`} ||
-            IMAGEURL: {imageUrl} ||
-            NAME: {name} ||
-            SEATING: {seatingImageUrl} ||
-            INFO: {info} ||
-            VENUE: {venue} ||
-            DATE: {date} ||
-            TIME: {time} ||
-            <button onClick={onClose}>
-                Close
-            </button>
+        <div className='event-details-modal' >
+            <a href="#" class="close" onClick={onClose}/>
+            <h4>{name}</h4>
+            <h5>{venue}</h5>
+            <h5>{dateTime}</h5>
         </div>
     )
 }
 
-EventDetailsModal.PropTypes = {
+EventDetailsModal   .PropTypes = {
     isLoading: PropTypes.bool.isRequired,
     error: PropTypes.object,
     imageUrl: PropTypes.string,

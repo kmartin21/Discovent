@@ -11,6 +11,7 @@ import {
 } from '../actions/Events'
 import EventDetailsModal from './EventDetailsModal';
 import '../styles/main.css'
+import Modal from '../components/Modal'
 
 class EventsTable extends Component {
     static propTypes = {
@@ -40,7 +41,8 @@ class EventsTable extends Component {
         dispatch(fetchEventDetailsIfNeeded(eventId))
     }
 
-    hideModal = () => {
+    hideModal = (e) => {
+        e.preventDefault()
         const { dispatch } = this.props
         dispatch(deselectEvent())
         this.setState({ show: false })
@@ -61,20 +63,25 @@ class EventsTable extends Component {
     
     render() {
         const { isLoading, error, items, selectedCountry, selectedEventId } = this.props
-        var selectedCountryCaps = selectedCountry.toUpperCase();
+
+        const modal = this.state.show ? (
+            <Modal>
+                <div className="modal">
+                    <EventDetailsModal eventId={selectedEventId} onClose={(e) => this.hideModal(e)}/>
+                </div>
+            </Modal>
+        ) : null;
+
         return (
             <div className='events-container'> 
-                {this.state.show &&
-                    <EventDetailsModal eventId={selectedEventId} onClose={() => this.hideModal()}/>
-                }
                 {items.length > 0 &&
                     <div className='events-container__events'>
-                        {/* <h6 className='events-container__header'>DISCOVER EVENTS IN {selectedCountryCaps}</h6> */}
                         {items.map(event => 
                             <Event id={event.id} imageUrl={event.imageUrl} name={event.name} onClick={() => this.showModal(event.id)} />
                         )}
                     </div>
                 }
+                {modal}
             </div>
         )
     }
