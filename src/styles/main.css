@@ -121,6 +121,7 @@
   height: 80%;
   width: 50%;
   border-radius: 10px;
+  display: block;
 }
 
 .close {
@@ -149,3 +150,83 @@
   transform: rotate(-45deg);
 }
 
+.event-details_slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.event-details__slide {
+  display: none;
+}
+
+.event-details-modal__event-image {
+  width: 100%;
+  height: 40%;
+  padding-top: 70px;
+  object-fit: contain;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.dots-container {
+  text-align: center;
+}
+
+.event-details-modal__details {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.event-details-modal__tickets-button {
+  white-space: nowrap;
+  border-color: #61c3fc;
+  outline: none;
+  cursor: pointer;
+  color: #61c3fc;
+  text-align: center;
+  background-color: white;
+  font-size: 0.9em;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 15px;
+}
+
+.event-details-modal__tickets-button:hover {
+  border-color: #41b3f5;
+  color: #41b3f5;
+}
+a.buttonz {
+  border-style: solid;
+  border-width: 1px;
+  text-decoration: none;
+  white-space: nowrap;
+  border-color: #61c3fc;
+  outline: none;
+  cursor: pointer;
+  color: #61c3fc;
+  text-align: center;
+  background-color: white;
+  font-size: 0.9em;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 15px;
+}
+
+a.buttonz:hover {
+  border-color: #41b3f5;
+  color: #41b3f5;
+}

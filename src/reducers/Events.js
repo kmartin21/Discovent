@@ -107,6 +107,7 @@ const eventDetails = (state = {
                 id: action.id,
                 isLoading: false,
                 error: null,
+                url: eventDetails.url,
                 imageUrl: getImageUrl(eventDetails.images),
                 name: eventDetails.name,
                 seatingImageUrl: eventDetails.seatmap.staticUrl,
@@ -130,7 +131,7 @@ const eventDetails = (state = {
 
 const getImageUrl = (images) => {
     for(var i in images) {
-        if(images[i].ratio === "4_3") {
+        if(images[i].ratio === "3_2") {
             return images[i].url
         }
     }
