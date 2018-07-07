@@ -4,9 +4,14 @@
   min-width: 100vh;
 }
 
+.wrapper {
+  display: flex;
+}
+
 .country-list {
-  order: 1;
   padding-right: 20px;
+  position: fixed;
+  order: 0;
 }
 
 .country-list__logo {
@@ -60,7 +65,8 @@
 }
 
 .events-container {
-  order: 2;
+  margin-left: 200px;
+  order: 1;
   padding-top: 70px;
 }
 
@@ -152,34 +158,35 @@
 
 .event-details_slideshow-container {
   max-width: 1000px;
-  position: relative;
   margin: auto;
 }
 
 .event-details__slide {
   display: none;
+  align-content: center;
+  justify-content: center;
 }
 
 .event-details-modal__event-image {
-  width: 100%;
-  height: 40%;
+  width: 50%;
+  height: 50%;
   padding-top: 70px;
   object-fit: contain;
 }
 
 .dot {
   cursor: pointer;
-  height: 15px;
-  width: 15px;
+  height: 6px;
+  width: 6px;
   margin: 0 2px;
-  background-color: #bbb;
+  background-color: rgb(219, 217, 217);
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
-  background-color: #717171;
+.active {
+  background-color: #474747;
 }
 
 .dots-container {
@@ -188,7 +195,7 @@
 
 .event-details-modal__details {
   text-align: center;
-  padding-top: 30px;
+  padding-top: 5px;
 }
 
 .event-details-modal__tickets-button {
@@ -209,7 +216,9 @@
   border-color: #41b3f5;
   color: #41b3f5;
 }
-a.buttonz {
+
+.event-details-modal__tickets-link {
+  appearance: none;
   border-style: solid;
   border-width: 1px;
   text-decoration: none;
@@ -217,16 +226,15 @@ a.buttonz {
   border-color: #61c3fc;
   outline: none;
   cursor: pointer;
-  color: #61c3fc;
+  color: white;
   text-align: center;
-  background-color: white;
+  background-color: #61c3fc;
   font-size: 0.9em;
   border-radius: 5px;
   font-weight: bold;
   padding: 15px;
 }
 
-a.buttonz:hover {
+.event-details-modal__tickets-link:hover {
   border-color: #41b3f5;
-  color: #41b3f5;
 }
