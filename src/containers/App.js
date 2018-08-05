@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
+import Logo from '../components/Logo'
 import CountryList from '../components/CountryList'
 import EventsTable from './EventsTable'
 import countryCodes from '../constants/CountryCodes'
@@ -17,9 +18,14 @@ const App = () => (
           
             if (countryCodes.find(code => code.code === match.params.code)) {
                 return (
-                  <div className='main-container'>
-                    <CountryList />
-                    <EventsTable countryCode={match.params.code} />
+                  <div>
+                    <div className='logo-container'>
+                      <Logo />
+                    </div>
+                    <div className='main-container'>
+                      <CountryList />
+                      <EventsTable countryCode={match.params.code} />
+                    </div>
                   </div>
                 )
             } else {

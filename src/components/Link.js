@@ -4,7 +4,6 @@ import '../styles/main.css'
 
 const Link = ({ active, name, onClick }) => (
     <div className='country-list__link-container'>
-        {/* <img src= {require(`../images/flag-icons/${name}.png`)} className='country-list__flag'/> */}
         <button
         className="country-list__button"
         onClick={onClick}

@@ -103,7 +103,7 @@ const eventDetails = (state = {
             }
         case types.FETCH_EVENT_DETAILS_SUCCESS:
             const eventDetails = action.payload.eventDetails
-            console.log("EVENT DETAILS: ", eventDetails)
+            
             return {
                 id: action.id,
                 isLoading: false,
@@ -134,7 +134,6 @@ const getImageUrl = (images) => {
     for(var i in images) {
         
         if(images[i].ratio === "3_2") {
-            console.log("IMAGE: ", images[i].url)
             return images[i].url
         }
     }

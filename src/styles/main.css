@@ -1,3 +1,19 @@
+.logo-container {
+  display: flex;
+  flex-flow: column;
+}
+
+.country-list-logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.country-list__logo {
+  width: 120px;
+  height: 105px;
+  object-fit: contain;
+}
+
 .main-container {
   display: flex;
   flex-flow: row;
@@ -9,16 +25,7 @@
 }
 
 .country-list {
-  padding-right: 20px;
-  position: fixed;
-  order: 0;
-}
-
-.country-list__logo {
-  width: 120px;
-  height: 105px;
-  object-fit: contain;
-  padding-left: 20px;
+  display: none;
 }
 
 .country-list__header {
@@ -34,14 +41,6 @@
 
 .country-list__link-container {
   white-space: nowrap;
-}
-
-.country-list__flag {
-  width: 15px;
-  height: 15px;
-  object-fit: contain;
-  vertical-align: middle;
-  padding-right: 10px;
 }
 
 .country-list__button {
@@ -65,9 +64,7 @@
 }
 
 .events-container {
-  margin-left: 200px;
-  order: 1;
-  padding-top: 70px;
+  order: 0;
 }
 
 .events-container__header {
@@ -80,13 +77,14 @@
   flex-flow: row;
   flex-wrap: wrap;
   flex-grow: 2;
+  justify-content: center;
 }
 
 .events-container__event {
   width: 300px;
   height: 300px;
-  margin: 20px;
-  
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .events-container__img {
@@ -128,6 +126,7 @@
   width: 50%;
   border-radius: 10px;
   display: block;
+  overflow-y: scroll;
 }
 
 .close {
@@ -138,9 +137,11 @@
   height: 32px;
   opacity: 0.3;
 }
+
 .close:hover {
   opacity: 1;
 }
+
 .close:before, .close:after {
   position: absolute;
   left: 15px;
@@ -237,4 +238,28 @@
 
 .event-details-modal__tickets-link:hover {
   border-color: #41b3f5;
+}
+
+@media only screen and (min-width: 765px) {
+  .country-list-logo-container {
+    padding-left: 20px;
+    justify-content: flex-start;
+  }
+
+  .country-list {
+    padding-right: 20px;
+    position: fixed;
+    order: 0;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  .events-container {
+    margin-left: 200px;
+    order: 1;
+  }
+
+  .events-container__events {
+    justify-content: normal;
+  }
 }
