@@ -5,7 +5,7 @@ import countryCodes from '../constants/CountryCodes'
 import '../styles/main.css'
 
 const CountryList = () => (
-    <div className="wrapper">
+    //<div className="country-list-container">
         <div className="country-list">
             <ul className="country-list__ul">
                 {countryCodes.map(code => (
@@ -13,7 +13,7 @@ const CountryList = () => (
                 ))}
             </ul>
         </div>
-    </div>
+    //</div>
 )
 
 export default CountryList
