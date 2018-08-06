@@ -103,13 +103,15 @@ const eventDetails = (state = {
             }
         case types.FETCH_EVENT_DETAILS_SUCCESS:
             const eventDetails = action.payload.eventDetails
+            
             return {
                 id: action.id,
                 isLoading: false,
                 error: null,
+                url: eventDetails.url,
                 imageUrl: getImageUrl(eventDetails.images),
                 name: eventDetails.name,
-                seatingImageUrl: eventDetails.seatmap.staticUrl,
+                seatingImageUrl: eventDetails.seatmap ? eventDetails.seatmap.staticUrl : null,
                 info: eventDetails.info,
                 venue: eventDetails._embedded.venues[0].name,
                 date: eventDetails.dates.start.localDate,
@@ -129,9 +131,10 @@ const eventDetails = (state = {
 }
 
 const getImageUrl = (images) => {
-    for(var image in images) {
-        if(image.ratio === "4_3") {
-            return image.url
+    for(var i in images) {
+        
+        if(images[i].ratio === "3_2") {
+            return images[i].url
         }
     }
 }
