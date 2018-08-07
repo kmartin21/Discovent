@@ -48,7 +48,10 @@
 .main-container {
   display: flex;
   flex-flow: row;
-  min-width: 100vh;
+  min-width: 100%;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;    
+  box-sizing: border-box;         
 }
 
 .country-list-container {
@@ -112,6 +115,10 @@
 .events-container {
   margin-top: 80px;
   order: 0;
+  width: 100%;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 .events-container__events {
@@ -119,6 +126,9 @@
   flex-flow: row;
   flex-wrap: wrap;
   justify-content: center;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 .events-container__event {
@@ -132,6 +142,8 @@
   height: 250px;
   display: block;
   object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #events-container__title {
