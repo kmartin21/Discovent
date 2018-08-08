@@ -5,15 +5,13 @@ import countryCodes from '../constants/CountryCodes'
 import '../styles/main.css'
 
 const CountryList = () => (
-    //<div className="country-list-container">
-        <div className="country-list">
-            <ul className="country-list__ul">
-                {countryCodes.map(code => (
-                    <li><Link key={code.code} to={`/${code.code}`}><CountryLink code={code.code} name={code.name}/></Link></li>
-                ))}
-            </ul>
-        </div>
-    //</div>
+    <div className="country-list">
+        <ul className="country-list__ul">
+            {countryCodes.map(code => (
+                <li><Link key={code.code} to={`/${code.code}`}><CountryLink code={code.code} name={code.name}/></Link></li>
+            ))}
+        </ul>
+    </div>
 )
 
 export default CountryList

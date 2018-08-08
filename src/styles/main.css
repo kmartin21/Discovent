@@ -21,15 +21,16 @@
 }
 
 .narrow-country-list {
-  height: 100%;
+  height: calc(100% - 80px);
   width: 0;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   overflow-x: hidden;
-  margin-top: 100px;
+  margin-top: 80px;
   transition: 0.3s;
+  background-color: white;
 }
 
 .country-list-logo-container {
@@ -48,10 +49,10 @@
 .main-container {
   display: flex;
   flex-flow: row;
-  min-width: 100%;
+  width: 100%;
   -webkit-box-sizing: border-box; 
   -moz-box-sizing: border-box;    
-  box-sizing: border-box;         
+  box-sizing: border-box;    
 }
 
 .country-list-container {
@@ -59,7 +60,7 @@
 }
 
 .country-list {
-  display: none;
+  height: 100%;
 }
 
 .country-list__header {
@@ -115,20 +116,14 @@
 .events-container {
   margin-top: 80px;
   order: 0;
-  width: 100%;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
+  width: 100%; 
 }
 
 .events-container__events {
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
-  justify-content: center;
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
+  justify-content: center;      
 }
 
 .events-container__event {
@@ -174,8 +169,8 @@
 .event-details-modal {
   position: absolute;
   background-color: white;
-  height: 80%;
-  width: 50%;
+  height: 70%;
+  width: 90%;
   border-radius: 10px;
   display: block;
   overflow-y: scroll;
@@ -343,6 +338,11 @@
 
   .events-container__events {
     justify-content: normal;
+  }
+
+  .event-details-modal {
+    height: 80%;
+    width: 50%;
   }
 }
 
