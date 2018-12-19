@@ -17,11 +17,10 @@ const Event = ({ imageUrl, name, onClick }) => (
     </div>
 )
 
-Event.PropTypes = {
-    id: PropTypes.string.required,
-    imageUrl: PropTypes.string.required,
-    name: PropTypes.string.required,
-    onClick: PropTypes.func.required
+Event.propTypes = {
+    imageUrl: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired
 }
 
 export default Event

@@ -4,11 +4,10 @@ import Logo from '../components/Logo'
 
 class Nav extends Component {
 
-    navToggle = () => {
-
+    toggleNav = () => {
         let narrowCountryList = document.querySelector('.country-list-container--narrow');
         
-		if (narrowCountryList.style.width === '0px') {
+		if (narrowCountryList.style.width === "" || narrowCountryList.style.width === '0px') {
             narrowCountryList.style.width = '200px';
 		} else {
             narrowCountryList.style.width = '0px';
@@ -23,8 +22,8 @@ class Nav extends Component {
                     <Logo />
                 </div>
 
-                <div className="nav--narrow"  onClick={this.navToggle}>
-                    <Logo />
+                <div className="nav--narrow">
+                    <Logo toggleNav={this.toggleNav}/>
                     <div className="country-list-container--narrow">
                             <CountryList />
                     </div>

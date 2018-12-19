@@ -31,7 +31,7 @@ export const fetchEventsSuccess = (json, countryCode) => ({
     payload: { 
         countryCode, 
         numOfEvents: json.page.totalElements, 
-        events: json._embedded.events
+        events: json.page.totalElements > 0 ? json._embedded.events : []
     }
 })
 
@@ -43,10 +43,9 @@ export const fetchEventDetailsSuccess = (id, json) => ({
     }
 })
 
-export const fetchEventsFailure = (id, error, countryCode) => ({
+export const fetchEventsFailure = (error, countryCode) => ({
     type: types.FETCH_EVENTS_FAILURE,
     payload: { 
-        id, 
         error, 
         countryCode 
     }

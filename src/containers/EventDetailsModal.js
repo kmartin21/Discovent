@@ -47,7 +47,7 @@ class EventDetailsModal extends Component {
             slides[i].style.display = "none"
         }
         for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "")
+            dots[i].className = dots[i].className.replace("--active", "")
         }
         
         slides[this.slideIndex-1].style.display = "flex"
@@ -55,61 +55,42 @@ class EventDetailsModal extends Component {
         slides[this.slideIndex-1].style.justifyContent = "center"
         
         if (dots.length != 0) {
-            dots[this.slideIndex-1].className += " active"
+            dots[this.slideIndex-1].className += "--active"
         }
     }
 
     render() {
-        const { onClose, error, url, imageUrl, name, seatingImageUrl, venue, date, time } = this.props
+        const { onClose, url, imageUrl, name, seatingImageUrl, venue, date, time } = this.props
         const dateTime = new Date(`${date} ${time}`).toDateString()
-        
-        var errorPage = null
-        
-        if (error) {
-            switch(parseInt(this.props.err.message, 10)) {
-                case 404:
-                    errorPage = <ErrorPage errorMessage="404. Sorry, we couldn't find that page."/>
-                    break
-                default: 
-                    errorPage = <ErrorPage errorMessage="500. Oops, something went wrong on our end. We're working to fix this."/>
-                    break
-            }
-        }
 
         return (
-            // <div>
-                // {React.isValidElement(errorPage) ? 
-                    // <div className='event-details__container'>{errorPage}</div>
-                    // :
-                    <div className='event-details__container'>
-                        <a href="#" class="close" onClick={onClose}/>
-                        <div className='event-details__slideshow-container'>
-                            <div className='event-details__slide' ref={this.eventSlideRef}>
-                                <img className= 'event-details__event-image' src={imageUrl}  alt="Event"/>
-                            </div>
-                            {seatingImageUrl &&
-                                <div className='event-details__slide' ref={this.seatingSlideRef}>
-                                    <img className= 'event-details__event-image' src={seatingImageUrl}  alt="Seating"/>
-                                </div>
-                            }
-                        </div>
-
-                        {seatingImageUrl &&
-                            <div className='slide-dots-container'>
-                                <span className="slide-dot--active" onClick={() => this.currentSlide(1)} ref={this.firstSlideDotRef}></span>
-                                <span className="slide-dot" onClick={() => this.currentSlide(2)} ref={this.secondSlideDotRef}></span>
-                            </div>
-                        }
-                        
-                        <div className='event-details__info-container'>
-                            <h4>{name}</h4>
-                            <h5>{venue}</h5>
-                            <h5>{dateTime}</h5>
-                            <a href={url} className='event-details__tickets-link' target='_blank'>Purchase Tickets</a>
-                        </div>
+            <div className='event-details__container'>
+                <a href="#" class="close" onClick={onClose}/>
+                <div className='event-details__slideshow-container'>
+                    <div className='event-details__slide' ref={this.eventSlideRef}>
+                        <img className= 'event-details__event-image' src={imageUrl}  alt="Event"/>
                     </div>
-            //     }
-            // </div>
+                    {seatingImageUrl &&
+                        <div className='event-details__slide' ref={this.seatingSlideRef}>
+                            <img className= 'event-details__event-image' src={seatingImageUrl}  alt="Seating"/>
+                        </div>
+                    }
+                </div>
+
+                {seatingImageUrl &&
+                    <div className='slide-dots-container'>
+                        <span className="slide-dot--active" onClick={() => this.currentSlide(1)} ref={this.firstSlideDotRef}></span>
+                        <span className="slide-dot" onClick={() => this.currentSlide(2)} ref={this.secondSlideDotRef}></span>
+                    </div>
+                }
+                
+                <div className='event-details__info-container'>
+                    <h4>{name}</h4>
+                    <h5>{venue}</h5>
+                    <h5>{dateTime}</h5>
+                    <a href={url} className='event-details__tickets-link' target='_blank'>Purchase Tickets</a>
+                </div>
+            </div>
         )
     }
 
@@ -120,7 +101,6 @@ const mapStateToProps = (state, ownProps) => {
     const eventDetails = state.eventDetailsById[ownProps.eventId]
     
      return {
-        error: eventDetails.error,
         url: eventDetails.url,
         imageUrl: eventDetails.imageUrl,
         name: eventDetails.name,

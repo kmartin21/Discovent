@@ -231,14 +231,21 @@
   height: 6px;
   width: 6px;
   margin: 0 2px;
-  background-color: rgb(219, 217, 217);
+  background-color: rgb(173, 173, 173);
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
 
 .slide-dot--active {
+  cursor: pointer;
+  height: 6px;
+  width: 6px;
+  margin: 0 2px;
   background-color: #474747;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
 
 .event-details__info-container {
@@ -278,6 +285,15 @@
   align-items: center;
   text-align: center;
   min-height: 100vh;
+}
+
+.error-page__container--events-table {
+  margin-top: -80px;
+  margin-right: 0; 
+}
+
+.error-page__container--event-details {
+  margin-top: -100px;
 }
 
 .error-page__header {
@@ -335,6 +351,15 @@
   .event-details__container {
     height: 80%;
     width: 50%;
+  }
+
+  .error-page__container--events-table {
+    margin-top: -80px;
+    margin-right: 250px; 
+  }
+
+  .country-list__logo {
+    padding-left: 0;
   }
 }
 

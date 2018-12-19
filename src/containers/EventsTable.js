@@ -51,8 +51,10 @@ class EventsTable extends Component {
 
     componentDidMount() {
         const { dispatch, countryCode } = this.props
-        dispatch(selectCountry(countryCode))
-        dispatch(fetchEventsByCountryIfNeeded())
+        if (countryCode !== 'NOT_DEFINED') {
+            dispatch(selectCountry(countryCode))
+            dispatch(fetchEventsByCountryIfNeeded())
+        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -63,19 +65,12 @@ class EventsTable extends Component {
     }
     
     render() {
-        const { error, items, selectedEventId } = this.props
-
-        var errorPage = null
+        const {isLoading, items, selectedEventId } = this.props
         
-        if (error) {
-            switch(parseInt(this.props.err.message, 10)) {
-                case 404:
-                    errorPage = <ErrorPage errorMessage="404. Sorry, we couldn't find that page."/>
-                    break
-                default: 
-                    errorPage = <ErrorPage errorMessage="500. Oops, something went wrong on our end. We're working to fix this."/>
-                    break
-            }
+        var errorPage = null
+
+        if (!isLoading && items.length === 0) {
+            errorPage = <ErrorPage errorMessage="No events available here at this time."/>
         }
 
         const modal = this.state.show ? (
@@ -87,19 +82,20 @@ class EventsTable extends Component {
         ) : null
 
         return (
-            <div>
+            <div className='events-table__container'>
                 {React.isValidElement(errorPage) ? 
-                    errorPage
+                    <div className='error-page__container--events-table'>{errorPage}</div>
                     :
                     [(items.length > 0 &&
-                        <div className='events-table__container'>
-                            <div className='events-table__events'>
+                        <div>
+                            (<div className='events-table__events'>
                                 {items.map(event => 
-                                    <Event id={event.id} imageUrl={event.imageUrl} name={event.name} onClick={() => this.showModal(event.id)} />
+                                    <Event key={event.id} imageUrl={event.imageUrl} name={event.name} onClick={() => this.showModal(event.id)} />
                                 )}
                             </div>
                             {modal}
-                        </div>)]
+                        </div>
+                    )]
                 }
             </div>
         )
@@ -116,7 +112,6 @@ const mapStateToProps = state => {
 
     return {
         isLoading: events.isLoading,
-        error: events.error,
         items: events.items,
         selectedCountry: state.selectedCountry,
         selectedEventId: state.selectedEvent

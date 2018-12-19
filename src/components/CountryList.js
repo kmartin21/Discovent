@@ -8,7 +8,7 @@ const CountryList = () => (
     <div className="country-list-container">
         <ul className="country-list">
             {countryCodes.map(code => (
-                <li className="country-list__item">
+                <li key={code.code} className="country-list__item">
                     <Link key={code.code} to={`/${code.code}`}><CountryLink code={code.code} name={code.name}/></Link>
                 </li>
             ))}

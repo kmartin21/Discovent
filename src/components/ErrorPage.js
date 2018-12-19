@@ -7,7 +7,7 @@ const ErrorPage = ({ errorMessage }) => (
     </div>
 )
 
-ErrorPage.PropTypes = {
+ErrorPage.propTypes = {
     errorMessage: PropTypes.string.isRequired
 }
 
