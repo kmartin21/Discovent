@@ -6,7 +6,7 @@ class Nav extends Component {
 
     navToggle = () => {
 
-        let narrowCountryList = document.querySelector('.narrow-country-list');
+        let narrowCountryList = document.querySelector('.country-list-container--narrow');
         
 		if (narrowCountryList.style.width === '0px') {
             narrowCountryList.style.width = '200px';
@@ -18,14 +18,14 @@ class Nav extends Component {
     render() {
         return (
             <nav>
-                <div className="nav-wide">
+                <div className="nav--wide">
                     <CountryList />
                     <Logo />
                 </div>
 
-                <div className="nav-narrow"  onClick={this.navToggle}>
+                <div className="nav--narrow"  onClick={this.navToggle}>
                     <Logo />
-                    <div className="narrow-country-list">
+                    <div className="country-list-container--narrow">
                             <CountryList />
                     </div>
                 </div>

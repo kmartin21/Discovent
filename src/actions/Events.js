@@ -106,7 +106,7 @@ const shouldFetchEventDetails = (state, eventId) => {
 }
 
 const fetchEventDetails = (eventId) => {
-    return (dispatch, getState) => {
+    return (dispatch) => {
         dispatch(fetchEventDetailsBegin(eventId))
         return eventsApi.getEventDetails(eventId)
             .then(json => dispatch(fetchEventDetailsSuccess(eventId, json)))
