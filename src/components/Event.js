@@ -5,7 +5,7 @@ import TextEllipsis from 'react-text-ellipsis';
 
 const Event = ({ imageUrl, name, onClick }) => (
     <div className="events-table__event">
-        <img className="event__img" src={imageUrl} onClick={onClick}/>
+        <img className="event__img" src={imageUrl} onClick={onClick} alt="Event"/>
         <div className="event__title"> 
             <TextEllipsis 
               lines={2} 

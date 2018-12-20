@@ -25,7 +25,7 @@ class EventsTable extends Component {
     }
 
     constructor(props) {
-        super(props),
+        super(props)
         this.state = {
             show: false
         }
@@ -51,10 +51,7 @@ class EventsTable extends Component {
 
     componentDidMount() {
         const { dispatch, countryCode } = this.props
-        if (countryCode !== 'NOT_DEFINED') {
-            dispatch(selectCountry(countryCode))
-            dispatch(fetchEventsByCountryIfNeeded())
-        }
+        dispatch(selectCountry(countryCode))
     }
 
     componentWillReceiveProps(nextProps) {
@@ -65,11 +62,13 @@ class EventsTable extends Component {
     }
     
     render() {
-        const {isLoading, items, selectedEventId } = this.props
+        const {error, isLoading, items, selectedEventId } = this.props
         
         var errorPage = null
 
-        if (!isLoading && items.length === 0) {
+        if (error) {
+            errorPage = <ErrorPage errorMessage="500. Oops, something went wrong on our end. We're working to fix this."/>
+        } else if (!isLoading && items.length === 0) {
             errorPage = <ErrorPage errorMessage="No events available here at this time."/>
         }
 
@@ -87,7 +86,7 @@ class EventsTable extends Component {
                     <div className='error-page__container--events-table'>{errorPage}</div>
                     :
                     [(items.length > 0 &&
-                        <div>
+                        <div key="0">
                             (<div className='events-table__events'>
                                 {items.map(event => 
                                     <Event key={event.id} imageUrl={event.imageUrl} name={event.name} onClick={() => this.showModal(event.id)} />
@@ -112,7 +111,8 @@ const mapStateToProps = state => {
 
     return {
         isLoading: events.isLoading,
-        items: events.items,
+        error: events.error,
+        items: events.items !== undefined ? events.items : [],
         selectedCountry: state.selectedCountry,
         selectedEventId: state.selectedEvent
     }

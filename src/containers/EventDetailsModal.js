@@ -5,7 +5,6 @@ import ErrorPage from '../components/ErrorPage'
 
 class EventDetailsModal extends Component {
     static propTypes = {
-        isLoading: PropTypes.bool.isRequired,
         error: PropTypes.object,
         imageUrl: PropTypes.string,
         name: PropTypes.string,
@@ -54,42 +53,54 @@ class EventDetailsModal extends Component {
         slides[this.slideIndex-1].style.alignContent = "center"
         slides[this.slideIndex-1].style.justifyContent = "center"
         
-        if (dots.length != 0) {
+        if (dots.length !== 0) {
             dots[this.slideIndex-1].className += "--active"
         }
     }
 
     render() {
-        const { onClose, url, imageUrl, name, seatingImageUrl, venue, date, time } = this.props
+        const { error, onClose, url, imageUrl, name, seatingImageUrl, venue, date, time } = this.props
         const dateTime = new Date(`${date} ${time}`).toDateString()
+
+        var errorPage = null
+        if (error) errorPage = <ErrorPage errorMessage="500. Oops, something went wrong on our end. We're working to fix this."/>
 
         return (
             <div className='event-details__container'>
-                <a href="#" class="close" onClick={onClose}/>
-                <div className='event-details__slideshow-container'>
-                    <div className='event-details__slide' ref={this.eventSlideRef}>
-                        <img className= 'event-details__event-image' src={imageUrl}  alt="Event"/>
+                {React.isValidElement(errorPage) ? 
+                    <div>
+                        <button className="close" onClick={onClose}/>
+                        <div className='error-page__container--event-details'>{errorPage}</div>
                     </div>
-                    {seatingImageUrl &&
-                        <div className='event-details__slide' ref={this.seatingSlideRef}>
-                            <img className= 'event-details__event-image' src={seatingImageUrl}  alt="Seating"/>
+                    :
+                    <div>
+                        <button className="close" onClick={onClose}/>
+                        <div className='event-details__slideshow-container'>
+                            <div className='event-details__slide' ref={this.eventSlideRef}>
+                                <img className= 'event-details__event-image' src={imageUrl}  alt="Event"/>
+                            </div>
+                            {seatingImageUrl &&
+                                <div className='event-details__slide' ref={this.seatingSlideRef}>
+                                    <img className= 'event-details__event-image' src={seatingImageUrl}  alt="Seating"/>
+                                </div>
+                            }
                         </div>
-                    }
-                </div>
 
-                {seatingImageUrl &&
-                    <div className='slide-dots-container'>
-                        <span className="slide-dot--active" onClick={() => this.currentSlide(1)} ref={this.firstSlideDotRef}></span>
-                        <span className="slide-dot" onClick={() => this.currentSlide(2)} ref={this.secondSlideDotRef}></span>
+                        {seatingImageUrl &&
+                            <div className='slide-dots-container'>
+                                <span className="slide-dot--active" onClick={() => this.currentSlide(1)} ref={this.firstSlideDotRef}></span>
+                                <span className="slide-dot" onClick={() => this.currentSlide(2)} ref={this.secondSlideDotRef}></span>
+                            </div>
+                        }
+                        
+                        <div className='event-details__info-container'>
+                            <h4>{name}</h4>
+                            <h5>{venue}</h5>
+                            <h5>{dateTime}</h5>
+                            <a href={url} className='event-details__tickets-link' target='_blank'>Purchase Tickets</a>
+                        </div>
                     </div>
                 }
-                
-                <div className='event-details__info-container'>
-                    <h4>{name}</h4>
-                    <h5>{venue}</h5>
-                    <h5>{dateTime}</h5>
-                    <a href={url} className='event-details__tickets-link' target='_blank'>Purchase Tickets</a>
-                </div>
             </div>
         )
     }
@@ -101,6 +112,7 @@ const mapStateToProps = (state, ownProps) => {
     const eventDetails = state.eventDetailsById[ownProps.eventId]
     
      return {
+        error: eventDetails.error,
         url: eventDetails.url,
         imageUrl: eventDetails.imageUrl,
         name: eventDetails.name,

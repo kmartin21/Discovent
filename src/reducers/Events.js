@@ -28,7 +28,7 @@ export const eventDetailsById = (state = {}, action) => {
     }
 }
 
-export const selectedCountry = (state = 'NOT_DEFINED', action) => {
+export const selectedCountry = (state = "", action) => {
     switch (action.type) {
         case types.SELECT_COUNTRY:
             return action.payload.countryCode
@@ -131,18 +131,19 @@ const eventDetails = (state = {
 }
 
 const getImageUrl = (images) => {
-    for(var i in images) {
-        if(images[i].ratio === "3_2") {
-            return images[i].url
-        }
+    const largeImageUrl = images.find(image => image.ratio === "16_9" && image.height > 500).url
+    if (largeImageUrl === undefined) {
+        const smallImageUrl = images.find(image => image.ratio === "3_2").url
+        return smallImageUrl !== undefined ? smallImageUrl : ""
     }
+    return largeImageUrl
 }
 
 const createEventObjects = (events) => {
     const eventObjects = events.map(event => ({
         id: event.id,
         name: event.name,
-        imageUrl: event.images[0].url
+        imageUrl: getImageUrl(event.images)
     }))
 
     return eventObjects
