@@ -1,11 +1,9 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import Nav from '../components/Nav'
-import Logo from '../components/Logo'
-import CountryList from '../components/CountryList'
 import EventsTable from './EventsTable'
 import countryCodes from '../constants/CountryCodes'
-import PageNotFound from '../components/PageNotFound'
+import ErrorPage from '../components/ErrorPage'
 import '../styles/main.css'
 
 const App = () => (
@@ -20,7 +18,7 @@ const App = () => (
             if (countryCodes.find(code => code.code === match.params.code)) {
                 return (
                   <div>
-                    <div className='header-container'>
+                    <div className='nav-container'>
                       <Nav />
                     </div>
                     <div className='main-container'>
@@ -31,16 +29,23 @@ const App = () => (
             } else {
                 return (
                   <div>
-                    <div className='header-container'>
+                    <div className='nav-container'>
                       <Nav />
                     </div>
-                    <PageNotFound />
+                    <ErrorPage errorMessage="404. Looks like you're a bit lost, we couldn't find that page."/>
                   </div>
                 )
             }
+            
           }
         } />
-        <Route component={PageNotFound} />
+        <Route path="*" render={ () => {
+                return (
+                  <div>
+                    <ErrorPage errorMessage="404. Looks like you're a bit lost, we couldn't find that page."/>
+                  </div>
+                )
+            }} />
       </Switch>
     </div>
   </Router>

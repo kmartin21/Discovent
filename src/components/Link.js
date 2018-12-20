@@ -5,8 +5,8 @@ import '../styles/main.css'
 const Link = ({ active, name, onClick }) => (
     <div className='country-list__link-container'>
         <button
-        className="country-list__button"
-        onClick={onClick}
+            className="country-list__button"
+            onClick={onClick}
         >
             {active ? <span className="country-list__button--selected">{name}</span> : name}
         </button>
