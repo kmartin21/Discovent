@@ -138,6 +138,10 @@
   margin-right: auto;
 }
 
+.event__img:hover {
+  cursor: pointer;
+}
+
 .event__title {
   margin-top: 0;
   padding-bottom: 10px;
