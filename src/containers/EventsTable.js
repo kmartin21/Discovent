@@ -26,6 +26,7 @@ class EventsTable extends Component {
 
     constructor(props) {
         super(props)
+        this._isMounted = false;
         this.state = {
             show: false
         }
@@ -59,6 +60,10 @@ class EventsTable extends Component {
             const { dispatch, selectedCountry } = nextProps
             dispatch(fetchEventsByCountryIfNeeded(selectedCountry))
         }
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false
     }
     
     render() {
