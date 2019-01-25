@@ -14,7 +14,7 @@ import '../styles/main.css'
 import Modal from '../components/Modal'
 import ErrorPage from '../components/ErrorPage'
 
-class EventsTable extends Component {
+export class EventsTable extends Component {
     static propTypes = {
         countryCode: PropTypes.string.isRequired,
         isLoading: PropTypes.bool.isRequired,
