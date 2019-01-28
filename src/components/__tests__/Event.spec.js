@@ -27,6 +27,7 @@ describe('Event', () => {
 
     it('calls onClick event on click of image', () => {
         let mountedEvent = mount(<Event {...props}/>)
+        
         mountedEvent.find('img').simulate('click')
         expect(props.onClick).toBeCalled()
     })
