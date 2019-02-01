@@ -20,6 +20,10 @@ describe('Event', () => {
         expect(shallowEvent.find('div').length).toBeGreaterThan(0)
     })
 
+    it('always renders a image', () => {
+        expect(shallowEvent.find('img').length)
+    })
+
     it('always sets the event image as the passed in imageUrl', () => {
         const wrappingDiv = shallowEvent.find('img')
         expect(wrappingDiv.prop('src')).toBe(props.imageUrl)

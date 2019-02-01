@@ -16,4 +16,8 @@ describe('ErrorPage', () => {
     it('always renders a div', () => {
         expect(shallowErrorPage.find('div').length).toBeGreaterThan(0)
     })
+
+    it('always renders a h2 header', () => {
+        expect(shallowErrorPage.find('h2').length).toBeGreaterThan(0)
+    })
 })
