@@ -81,17 +81,11 @@ describe('Events actions', () => {
     })
 
     it('should create an action to signal the success of an event details fetch', () => {
-        const id = '125487'
+        const id = 'vvG1zZ4848CU8N'
         const json = {
-            page: {
-                totalElements: 1
-            },
-            _embedded: {
-                events: 
-                    [{
-                        name: "Superbowl"
-                    }]
-            }
+            name:"Atlanta Hawks vs. Los Angeles Lakers",
+            type:"event",
+            id:"vvG1zZ4848CU8N"
         }
 
         const expectedAction = {
@@ -137,7 +131,7 @@ describe('Async Events actions', () => {
         fetchMock.restore()
     })
 
-    it('creates FETCH_EVENTS_BEGIN and FETCH_EVENTS_SUCCESS actions if the fetch response was successful', () => {
+    it('creates FETCH_EVENTS_BEGIN and FETCH_EVENTS_SUCCESS actions if the events fetch response was successful', () => {
         const json = {
             page: {
                 totalElements: 1
@@ -173,7 +167,7 @@ describe('Async Events actions', () => {
         })
     })
 
-    it('creates FETCH_EVENTS_BEGIN and FETCH_EVENTS_FAILURE actions if the fetch response failed', () => {
+    it('creates FETCH_EVENTS_BEGIN and FETCH_EVENTS_FAILURE actions if the events fetch response failed', () => {
         const error = new Error('Could not parse json')
        
         const countryCode = 'US'
@@ -194,6 +188,59 @@ describe('Async Events actions', () => {
         const store = mockStore({ eventsByCountry: {} })
 
         return store.dispatch(eventsActions.fetchEventsByCountry(countryCode)).then(() => {
+            expect(store.getActions()).toEqual(expectedActions)
+        })
+    })
+
+    it('creates FETCH_EVENT_DETAILS_BEGIN and FETCH_EVENT_DETAILS_SUCCESS action if the event detail fetch response was successful', () => {
+        const eventId = "vvG1zZ4848CU8N"
+        const json = {
+            name:"Atlanta Hawks vs. Los Angeles Lakers",
+            type:"event",
+            id:eventId
+        }
+
+        fetchMock.getOnce(`https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=${process.env.REACT_APP_TM_API_KEY}`, {
+            body: json,
+            headers: { 'content-type': 'application/json' }
+        })
+
+        const expectedActions = [
+            { type: actionTypes.FETCH_EVENT_DETAILS_BEGIN, payload: { id: eventId } },
+            { type: actionTypes.FETCH_EVENT_DETAILS_SUCCESS, payload: { 
+                    id: eventId,
+                    eventDetails: json
+                } 
+            }
+        ]
+
+        const store = mockStore({ eventsByCountry: {} })
+
+        return store.dispatch(eventsActions.fetchEventDetails(eventId)).then(() => {
+            expect(store.getActions()).toEqual(expectedActions)
+        })
+    })
+
+    it('creates FETCH_EVENT_DETAILS_BEGIN and FETCH_EVENT_DETAILS_FAILURE action if the event detail fetch response failed', () => {
+        const eventId = "vvG1zZ4848CU8N"
+        const error = new Error('Could not parse json')
+
+        fetchMock.getOnce(`https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=${process.env.REACT_APP_TM_API_KEY}`, {
+            throws: error
+        })
+
+        const expectedActions = [
+            { type: actionTypes.FETCH_EVENT_DETAILS_BEGIN, payload: { id: eventId } },
+            { type: actionTypes.FETCH_EVENT_DETAILS_FAILURE, payload: { 
+                    id: eventId,
+                    error
+                } 
+            }
+        ]
+
+        const store = mockStore({ eventsByCountry: {} })
+
+        return store.dispatch(eventsActions.fetchEventDetails(eventId)).then(() => {
             expect(store.getActions()).toEqual(expectedActions)
         })
     })
