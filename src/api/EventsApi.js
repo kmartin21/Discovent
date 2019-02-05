@@ -1,4 +1,4 @@
-import fetch from 'cross-fetch'
+import 'cross-fetch'
 
 const BASE_URL = `https://app.ticketmaster.com`
 const DISCOVERY_BASE_URL = `${BASE_URL}/discovery/v2/`
@@ -27,4 +27,4 @@ const handleNetworkErrors = (response) => {
     }
     return response
 }
-            
+
