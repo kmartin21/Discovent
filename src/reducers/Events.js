@@ -105,7 +105,7 @@ const eventDetails = (state = {
             const eventDetails = action.payload.eventDetails
             
             return {
-                id: action.id,
+                id: action.payload.id,
                 isLoading: false,
                 error: null,
                 url: eventDetails.url,
