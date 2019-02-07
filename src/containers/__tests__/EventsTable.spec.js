@@ -1,14 +1,10 @@
 import React from 'react'
 import { EventsTable } from '../EventsTable'
-import { shallow, mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import ErrorPage from '../../components/ErrorPage'
 import Event from '../../components/Event'
 import Modal from '../../components/Modal'
 import EventDetailsModal from '../EventDetailsModal'
-import TestProvider from '../../setupTests'
-import { MemoryRouter } from 'react-router'
-import { Route } from 'react-router-dom'
-import App from '../App'
 
 describe('EventsTable', () => {
     let props
@@ -29,7 +25,7 @@ describe('EventsTable', () => {
                 imageUrl: 'https://testingImageUrl.com/q42.jpg',
                 name: 'Jets vs Giants'
             }],
-            selectedCountry: 'ES',
+            selectedCountry: 'US',
             selectedEventId: null,
             dispatch: jest.fn()
         }
@@ -145,18 +141,6 @@ describe('EventsTable', () => {
                 shallowEventsTable = shallow(<EventsTable {...props} />)
                 shallowEventsTable.setState({ show: true })
                 expect(shallowEventsTable.find(EventDetailsModal).props().eventId).toEqual(props.selectedEventId)
-            })
-
-            it('should call `hideModal` when `onClose` event is fired', () => {
-                const mountedEventsTable = mount(<EventsTable {...props} />)
-                mountedEventsTable.setState({ show: true })
-                mountedEventsTable.instance().hideModal = jest.fn()
-                mountedEventsTable.instance().forceUpdate()
-        
-                const toggleHideModalSpy = jest.spyOn(mountedEventsTable.instance(), 'hideModal')
-                mountedEventsTable.find(EventDetailsModal).find('button').simulate('click')
-                expect(toggleHideModalSpy).toHaveBeenCalled()
-                mountedEventsTable.unmount()
             })
         })
     })
