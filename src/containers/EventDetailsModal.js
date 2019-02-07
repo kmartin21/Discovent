@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import ErrorPage from '../components/ErrorPage'
 
-class EventDetailsModal extends Component {
+export class EventDetailsModal extends Component {
     static propTypes = {
         error: PropTypes.object,
         imageUrl: PropTypes.string,
@@ -26,7 +26,8 @@ class EventDetailsModal extends Component {
     }
 
     componentDidMount() {
-        this.showSlides(this.slideIndex)
+        const { error } = this.props
+        if (!error) this.showSlides(this.slideIndex)
     }
 
     currentSlide(n) {

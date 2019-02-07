@@ -14,7 +14,7 @@ import '../styles/main.css'
 import Modal from '../components/Modal'
 import ErrorPage from '../components/ErrorPage'
 
-class EventsTable extends Component {
+export class EventsTable extends Component {
     static propTypes = {
         countryCode: PropTypes.string.isRequired,
         isLoading: PropTypes.bool.isRequired,
@@ -26,6 +26,7 @@ class EventsTable extends Component {
 
     constructor(props) {
         super(props)
+        this._isMounted = false;
         this.state = {
             show: false
         }
@@ -59,6 +60,10 @@ class EventsTable extends Component {
             const { dispatch, selectedCountry } = nextProps
             dispatch(fetchEventsByCountryIfNeeded(selectedCountry))
         }
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false
     }
     
     render() {

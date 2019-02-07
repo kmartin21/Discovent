@@ -77,7 +77,7 @@ const shouldFetchEvents = (state, countryCode) => {
     return isDataStale
 }
 
-const fetchEventsByCountry = (countryCode) => {
+export const fetchEventsByCountry = (countryCode) => {
     return dispatch => {
         dispatch(fetchEventsBegin(countryCode))
         return eventsApi.getEventsByCountry(countryCode)
@@ -104,7 +104,7 @@ const shouldFetchEventDetails = (state, eventId) => {
     return isDataStale
 }
 
-const fetchEventDetails = (eventId) => {
+export const fetchEventDetails = (eventId) => {
     return (dispatch) => {
         dispatch(fetchEventDetailsBegin(eventId))
         return eventsApi.getEventDetails(eventId)

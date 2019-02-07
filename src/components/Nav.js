@@ -25,7 +25,7 @@ class Nav extends Component {
                 <div className="nav--narrow">
                     <Logo toggleNav={this.toggleNav}/>
                     <div className="country-list-container--narrow">
-                            <CountryList />
+                        <CountryList />
                     </div>
                 </div>
             </nav>
