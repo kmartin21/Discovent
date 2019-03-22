@@ -18,8 +18,9 @@ A web app built with React and Redux, that allows you to discover events happeni
 * Redux
 * CSS
 
-### Testing framework
+### Testing
 * Jest
+* Enzyme
 <br>
 <br>
 
