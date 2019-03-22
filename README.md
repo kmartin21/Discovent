@@ -4,7 +4,7 @@
 A web app built with React and Redux, that allows you to discover events happening in different countries, shows detailed event info and where to buy tickets.
 
 [![Build Status](https://travis-ci.org/kmartin21/discovent.svg?branch=master)](https://travis-ci.org/kmartin21/discovent)
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://badges.mit-license.org)
 <br>
 <br>
 
