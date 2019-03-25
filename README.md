@@ -25,6 +25,7 @@ A web app built with React and Redux, that lets you discover events happening in
 ## Live Site
 https://discovent.herokuapp.com
 <br>
+<br>
 
 ## Built With
 * <a href="https://reactjs.org">React</a>
@@ -34,7 +35,6 @@ https://discovent.herokuapp.com
 #### Tests
 * <a href="https://jestjs.io">Jest</a>
 * <a href="https://airbnb.io/enzyme">Enzyme</a>
-<br>
 
 ## Run Locally
 Run these commands first:
@@ -51,6 +51,7 @@ $ npm run dev
 ```
 
 Visit http://localhost:3000 to view the web app.
+<br>
 <br>
 
 ## Run Tests
