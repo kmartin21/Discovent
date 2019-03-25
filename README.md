@@ -35,7 +35,7 @@ https://discovent.herokuapp.com
 #### Tests
 * <a href="https://jestjs.io">Jest</a>
 * <a href="https://airbnb.io/enzyme">Enzyme</a>
-<br>
+<br> 
 
 ## Run Locally
 Run these commands first:
