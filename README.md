@@ -1,4 +1,4 @@
-<p align="center"><img src="/src/images/logo.png" title="Discovent logo" alt="Discovent logo"></p>
+<p align="center"><img src="/src/images/logo.png" title="Discovent logo" alt="Discovent logo" height="150px" width="350px"></p>
                                                                                                                                 
 <h1 align="center">Discovent</h1> 
 
