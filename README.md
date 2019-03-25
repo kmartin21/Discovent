@@ -15,11 +15,15 @@
   </a>
 </div>
 
-## Basic overview
-A web app built with React and Redux, that lets you discover events happening in different countries, shows detailed event info and where to buy tickets. Utilizes the <a href="https://developer.ticketmaster.com/">TicketMaster API</a> for event data.
+## Basic Overview
+A web app built with React and Redux, that lets you discover events happening in different countries, shows detailed event info and where to purchase tickets. Event data is powered by the <a href="https://developer.ticketmaster.com/">TicketMaster API</a>.
 
-![Discovent screenshot](/src/images/screenshot.png?raw=true)
+![Discovent screenshot](/src/images/screenshot.png)
 <br>
+<br>
+
+## Live Site
+https://discovent.herokuapp.com
 <br>
 
 ## Built With
@@ -27,14 +31,10 @@ A web app built with React and Redux, that lets you discover events happening in
 * <a href="https://redux.js.org">Redux</a>
 * CSS
 
-#### Testing
+#### Tests
 * <a href="https://jestjs.io">Jest</a>
 * <a href="https://airbnb.io/enzyme">Enzyme
 <br>
-<br>
-
-## Live Site
-https://discovent.herokuapp.com/
 
 ## Run Locally
 Run these commands first:
@@ -42,12 +42,17 @@ Run these commands first:
 $ git clone https://github.com/kmartin21/discovent.git
 $ cd discovent
 $ npm install
-$ npm start
+```
+Rename the ```.env.example``` file in the root directory to ```.env```.
+
+Run the app:
+```
+$ npm run dev
 ```
 
-Visit http://localhost:3000/ to view the webapp.
+Visit http://localhost:3000 to view the web app.
 
-#### Run tests
+## Run Tests
 ```
 $ npm test
 ```
