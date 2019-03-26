@@ -30,6 +30,7 @@ https://discovent.herokuapp.com
 ## Built With
 * <a href="https://reactjs.org">React</a>
 * <a href="https://redux.js.org">Redux</a>
+* <a href="https://github.com/ReactTraining/react-router">React Router</a>
 * CSS
 
 #### Tests
