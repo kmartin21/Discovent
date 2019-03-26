@@ -16,7 +16,7 @@
 </div>
 
 ## Basic Overview
-A web app built with React and Redux, that lets you discover events happening in different countries, shows detailed event info and where to purchase tickets. Event data is powered by the <a href="https://developer.ticketmaster.com/">TicketMaster API</a>.
+A web app built with React and Redux, that lets you discover events happening in different countries, shows detailed event info and where to purchase tickets. Event data powered by the <a href="https://developer.ticketmaster.com/">TicketMaster API</a>.
 
 ![Discovent screenshot](/src/images/screenshot.png)
 <br>
