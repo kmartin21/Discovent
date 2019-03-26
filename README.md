@@ -41,20 +41,20 @@ https://discovent.herokuapp.com
 <br> 
 
 ## Run Locally
-Run these commands first:
+* Run these commands first:
 ```
 $ git clone https://github.com/kmartin21/discovent.git
 $ cd discovent
 $ npm install
 ```
-Rename the ```.env.example``` file in the root directory to ```.env```.
+* Rename the ```.env.example``` file in the root directory to ```.env```.
 
-Run the app:
+* Run the app:
 ```
 $ npm run dev
 ```
 
-Visit http://localhost:3000 to view the web app.
+* Visit http://localhost:3000 to view the web app.
 <br>
 <br>
 
