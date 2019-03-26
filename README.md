@@ -36,6 +36,8 @@ https://discovent.herokuapp.com
 #### Tests
 * <a href="https://jestjs.io">Jest</a>
 * <a href="https://airbnb.io/enzyme">Enzyme</a>
+* <a href="https://github.com/wheresrhys/fetch-mock">fetch-mock</a>
+* <a href="https://github.com/dmitry-zaets/redux-mock-store">redux-mock-store</a>
 <br> 
 
 ## Run Locally
