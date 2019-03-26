@@ -41,7 +41,7 @@ https://discovent.herokuapp.com
 <br> 
 
 ## Run Locally
-* Run these commands first:
+* Run below commands first:
 ```
 $ git clone https://github.com/kmartin21/discovent.git
 $ cd discovent
@@ -59,6 +59,8 @@ $ npm run dev
 <br>
 
 ## Run Tests
+* Rename the ```.env.example``` file in the root directory to ```.env```.
+* Run below command in the root directory:
 ```
 $ npm test
 ```
